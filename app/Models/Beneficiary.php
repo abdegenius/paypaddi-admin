@@ -12,4 +12,8 @@ class Beneficiary extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function beneficiary_details()
+    {
+        return $this->hasMany(BeneficiaryDetail::class);
+    }
 }

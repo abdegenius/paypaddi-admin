@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class BeneficiaryDetail extends Model
 {
     use HasFactory;
+    public function beneficiary()
+    {
+        return $this->belongsTo(Beneficiary::class);
+    }
 }

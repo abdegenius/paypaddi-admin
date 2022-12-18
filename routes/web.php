@@ -1,5 +1,19 @@
 <?php
 
+use App\DataTables\TransactionDataTable;
+use App\DataTables\UserDataTable;
+use App\DataTables\DataDataTable;
+use App\DataTables\AirtimeDataTable;
+use App\DataTables\WalletDataTable;
+use App\DataTables\IdDataTable;
+use App\DataTables\EducationDataTable;
+use App\DataTables\ElectricityDataTable;
+use App\DataTables\BettingDataTable;
+use App\DataTables\BvnDataTable;
+use App\DataTables\BeneficiaryDataTable;
+use App\DataTables\CableDataTable;
+use App\DataTables\CardDataTable;
+use App\DataTables\TransferDataTable;
 use App\Http\Controllers\SettingController;
 use App\Models\Airtime;
 use App\Models\BeneficiaryDetail;
@@ -72,9 +86,8 @@ Route::get('/logout', function() {
 
 // Transaction
 
-Route::get('/transactions', function(Request $request) {
-    $data = Transaction::orderBy('id', 'DESC')->paginate(25);
-    return view("transaction.index", ["data" => $data]);
+Route::get('/transactions', function(Request $request, TransactionDataTable $dataTable) {
+    return $dataTable->render('transaction.index');
 })->name('transactions')->middleware(['auth', 'admin']);
 
 Route::get('/transaction/{id}', function($id, Request $request) {
@@ -105,9 +118,8 @@ Route::post('/transaction/{id}', function($id, Request $request) {
 
 // Airtime
 
-Route::get('/airtimes', function(Request $request) {
-    $data = Airtime::orderBy('id', 'DESC')->paginate(25);
-    return view("airtime.index", ["data" => $data]);
+Route::get('/airtimes', function(Request $request, AirtimeDataTable $dataTable) {
+    return $dataTable->render('airtime.index');
 })->name('airtimes')->middleware(['auth', 'admin']);
 
 Route::get('/airtime/{id}', function($id, Request $request) {
@@ -143,9 +155,8 @@ Route::post('/airtime/{id}', function($id, Request $request) {
 
 // Data
 
-Route::get('/datas', function(Request $request) {
-    $data = Data::orderBy('id', 'DESC')->paginate(25);
-    return view("data.index", ["data" => $data]);
+Route::get('/datas', function(Request $request, DataDataTable $dataTable) {
+    return $dataTable->render('data.index');
 })->name('datas')->middleware(['auth', 'admin']);
 
 Route::get('/data/{id}', function($id, Request $request) {
@@ -181,9 +192,8 @@ Route::post('/data/{id}', function($id, Request $request) {
 
 // Betting
 
-Route::get('/bettings', function(Request $request) {
-    $data = Betting::orderBy('id', 'DESC')->paginate(25);
-    return view("betting.index", ["data" => $data]);
+Route::get('/bettings', function(Request $request, BettingDataTable $dataTable) {
+    return $dataTable->render('betting.index');
 })->name('bettings')->middleware(['auth', 'admin']);
 
 Route::get('/betting/{id}', function($id, Request $request) {
@@ -220,9 +230,8 @@ Route::post('/betting/{id}', function($id, Request $request) {
 
 // Eduation
 
-Route::get('/educations', function(Request $request) {
-    $data = Education::orderBy('id', 'DESC')->paginate(25);
-    return view("education.index", ["data" => $data]);
+Route::get('/educations', function(Request $request, EducationDataTable $dataTable) {
+    return $dataTable->render('education.index');
 })->name('educations')->middleware(['auth', 'admin']);
 
 Route::get('/education/{id}', function($id, Request $request) {
@@ -260,9 +269,8 @@ Route::post('/education/{id}', function($id, Request $request) {
 
 // Electricity
 
-Route::get('/electricities', function(Request $request) {
-    $data = Electricity::orderBy('id', 'DESC')->paginate(25);
-    return view("electricity.index", ["data" => $data]);
+Route::get('/electricities', function(Request $request, ElectricityDataTable $dataTable) {
+    return $dataTable->render('electricity.index');
 })->name('electricities')->middleware(['auth', 'admin']);
 
 Route::get('/electricity/{id}', function($id, Request $request) {
@@ -303,9 +311,8 @@ Route::post('/electricity/{id}', function($id, Request $request) {
 
 // Cable
 
-Route::get('/cables', function(Request $request) {
-    $data = Cable::orderBy('id', 'DESC')->paginate(25);
-    return view("cable.index", ["data" => $data]);
+Route::get('/cables', function(Request $request, CableDataTable $dataTable) {
+    return $dataTable->render('cable.index');
 })->name('cables')->middleware(['auth', 'admin']);
 
 Route::get('/cable/{id}', function($id, Request $request) {
@@ -343,9 +350,8 @@ Route::post('/cable/{id}', function($id, Request $request) {
 
 // Wallet
 
-Route::get('/wallets', function(Request $request) {
-    $data = Wallet::orderBy('id', 'DESC')->paginate(25);
-    return view("wallet.index", ["data" => $data]);
+Route::get('/wallets', function(Request $request, WalletDataTable $dataTable) {
+    return $dataTable->render('wallet.index');
 })->name('wallets')->middleware(['auth', 'admin']);
 
 Route::get('/wallet/{id}', function($id, Request $request) {
@@ -371,9 +377,8 @@ Route::post('/wallet/{id}', function($id, Request $request) {
 
 // Transfer
 
-Route::get('/transfers', function(Request $request) {
-    $data = Transfer::orderBy('id', 'DESC')->paginate(25);
-    return view("transfer.index", ["data" => $data]);
+Route::get('/transfers', function(Request $request, TransferDataTable $dataTable) {
+    return $dataTable->render('transfer.index');
 })->name('transfers')->middleware(['auth', 'admin']);
 
 Route::get('/transfer/{id}', function($id, Request $request) {
@@ -414,9 +419,8 @@ Route::post('/transfer/{id}', function($id, Request $request) {
 
 // Beneficiaries
 
-Route::get('/beneficiaries', function(Request $request) {
-    $data = BeneficiaryDetail::orderBy('id', 'DESC')->paginate(25);
-    return view("beneficiary.index", ["data" => $data]);
+Route::get('/beneficiaries', function(Request $request, BeneficiaryDataTable $dataTable) {
+    return $dataTable->render('beneficiary.index');
 })->name('beneficiaries')->middleware(['auth', 'admin']);
 
 Route::get('/beneficiary/{id}', function($id, Request $request) {
@@ -448,9 +452,8 @@ Route::post('/beneficiary/{id}', function($id, Request $request) {
 
 // Cards
 
-Route::get('/cards', function(Request $request) {
-    $data = Card::orderBy('id', 'DESC')->paginate(25);
-    return view("card.index", ["data" => $data]);
+Route::get('/cards', function(Request $request, CardDataTable $dataTable) {
+    return $dataTable->render('card.index');
 })->name('cards')->middleware(['auth', 'admin']);
 
 Route::get('/card/{id}', function($id, Request $request) {
@@ -484,9 +487,8 @@ Route::post('/card/{id}', function($id, Request $request) {
 
 // Users
 
-Route::get('/users', function(Request $request) {
-    $data = User::orderBy('id', 'DESC')->paginate(25);
-    return view("user.index", ["data" => $data]);
+Route::get('/users', function(Request $request, UserDataTable $dataTable) {
+    return $dataTable->render('user.index');
 })->name('users')->middleware(['auth', 'admin']);
 
 Route::get('/user/{id}', function($id, Request $request) {
@@ -524,9 +526,8 @@ Route::post('/user/{id}', function($id, Request $request) {
 
 // BVNs
 
-Route::get('/bvns', function(Request $request) {
-    $data = Kyc::where('level', '1')->orderBy('id', 'DESC')->paginate(25);
-    return view("bvn.index", ["data" => $data]);
+Route::get('/bvns', function(Request $request, BvnDataTable $dataTable) {
+    return $dataTable->render('bvn.index');
 })->name('bvns')->middleware(['auth', 'admin']);
 
 Route::get('/bvn/{id}', function($id, Request $request) {
@@ -554,9 +555,8 @@ Route::post('/bvn/{id}', function($id, Request $request) {
 
 // IDs
 
-Route::get('/ids', function(Request $request) {
-    $data = Kyc::where('level', '2')->orderBy('id', 'DESC')->paginate(25);
-    return view("id.index", ["data" => $data]);
+Route::get('/ids', function(Request $request, IdDataTable $dataTable) {
+    return $dataTable->render('id.index');
 })->name('ids')->middleware(['auth', 'admin']);
 
 Route::get('/id/{id}', function($id, Request $request) {
@@ -581,35 +581,6 @@ Route::post('/id/{id}', function($id, Request $request) {
     return redirect()->back()->withSuccess("Updated");
 })->name('edit.id')->middleware(['auth', 'admin']);
 
-
-// Tood
-
-Route::get('/todos', function(Request $request) {
-    $data = Todo::where('user_id', Auth::id())->orderBy('id', 'DESC')->paginate(25);
-    return view("todo.index", ["data" => $data]);
-})->name('todos')->middleware(['auth', 'admin']);
-
-Route::get('/todo/{id}', function($id, Request $request) {
-    $data = Todo::findOrFail($id);
-    return view("todo.single", ["data" => $data]);
-})->name('todo')->middleware(['auth', 'admin']);
-
-Route::get('/todo/delete/{id}', function($id, Request $request) {
-    $data = Todo::findOrFail($id);
-    $data->delete();
-    return redirect()->route("todos")->withSuccess("Deleted");
-})->name('delete.todo')->middleware(['auth', 'admin']);
-
-Route::post('/todo/{id}', function($id, Request $request) {
-    $data = Todo::findOrFail($id);
-    $data->status = $request->status;
-    $data->content = $request->content;
-    $data->created_at = $request->created_at;
-    $data->updated_at = $request->updated_at;
-    $data->update();
-    return redirect()->back()->withSuccess("Updated");
-})->name('edit.todo')->middleware(['auth', 'admin']);
-
 // Settings
 
 Route::get('/settings', function(Request $request) {
@@ -618,5 +589,3 @@ Route::get('/settings', function(Request $request) {
 })->name('settings')->middleware(['auth', 'admin']);
 
 Route::post('/settings', [SettingController::class, "update"])->name('post.settings')->middleware(['auth', 'admin']);
-
-
