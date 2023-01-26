@@ -7,16 +7,15 @@
         <div class="page-content">
             <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3">
                 <div class="col">
-                    <div class="card radius-10">
+                    <div class="card radius-10 text-white bg-danger">
                         <div class="card-body">
                             <div class="d-flex align-items-center">
                                 <div>
                                     <p class="mb-0">Transaction Value (Today)</p>
                                     <h4 class="my-1">₦48,455,305</h4>
-                                    <p class="mb-0 font-13"><i class='bx bxs-up-arrow align-middle'></i>34% Since last week
-                                    </p>
+                                    <!-- <p class="mb-0 font-13"><i class='bx bxs-up-arrow align-middle'></i>34% Since last week</p> -->
                                 </div>
-                                <div class="dropdown ms-auto">
+                                <!-- <div class="dropdown ms-auto">
                                     <div class="dropdown-toggle dropdown-toggle-nocaret cursor-pointer"
                                         data-bs-toggle="dropdown"> <i class='bx bx-dots-horizontal-rounded font-22'></i>
                                     </div>
@@ -30,22 +29,21 @@
                                         <li><a class="dropdown-item" href="javascript:;">All Time</a>
                                         </li>
                                     </ul>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card radius-10">
+                    <div class="card radius-10 text-white bg-secondary">
                         <div class="card-body">
                             <div class="d-flex align-items-center">
                                 <div>
                                     <p class="mb-0">Transaction Volume (Today)</p>
                                     <h4 class="my-1">12,454</h4>
-                                    <p class="mb-0 font-13"><i class='bx bxs-up-arrow align-middle'></i>14% Since last week
-                                    </p>
+                                    <!-- <p class="mb-0 font-13"><i class='bx bxs-up-arrow align-middle'></i>14% Since last week</p> -->
                                 </div>
-                                <div class="dropdown ms-auto">
+                                <!-- <div class="dropdown ms-auto">
                                     <div class="dropdown-toggle dropdown-toggle-nocaret cursor-pointer"
                                         data-bs-toggle="dropdown"> <i class='bx bx-dots-horizontal-rounded font-22'></i>
                                     </div>
@@ -59,23 +57,22 @@
                                         <li><a class="dropdown-item" href="javascript:;">All Time</a>
                                         </li>
                                     </ul>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-12">
-                    <div class="card radius-10">
+                    <div class="card radius-10 text-white bg-primary">
                         <div class="card-body">
                             <div class="d-flex align-items-center">
                                 <div>
                                     <p class="mb-0">Total Users</p>
                                     <h4 class="my-1">{{ App\Models\User::count() }}</h4>
-                                    <p class="mb-0 font-13"><i class='bx bxs-down-arrow align-middle'></i>12.4% Since last
-                                        week</p>
+                                    <!-- <p class="mb-0 font-13"><i class='bx bxs-down-arrow align-middle'></i>12.4% Since last week</p> -->
                                 </div>
-                                <div class="widgets-icons ms-auto"><i class='bx bxs-group'></i>
-                                </div>
+                                <!-- <div class="widgets-icons ms-auto"><i class='bx bxs-group'></i>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -85,56 +82,56 @@
             <!--start row2-->
             <div class="row row-cols-1 row-cols-lg-2 row-cols-xl-3">
                 <div class="col">
-                    <div class="card radius-10">
+                    <div class="card radius-10 text-white  bg-info">
                         <div class="card-body">
                             <div class="d-flex align-items-center">
                                 <div>
                                     <p class="mb-0">Wallet Balance</p>
                                     <h4 class="my-1">{{ amountNGN(App\Models\Wallet::sum('current_balance')) }}</h4>
-                                    <p class="mb-0 font-13"><i class='bx bxs-up-arrow align-middle'></i>34% Since last week
-                                    </p>
+                                    <!-- <p class="mb-0 font-13"><i class='bx bxs-up-arrow align-middle'></i>34% Since last week
+                                    </p> -->
                                 </div>
-                                <div class="widgets-icons ms-auto"><i class='bx bxs-wallet'></i>
-                                </div>
+                                <!-- <div class="widgets-icons ms-auto"><i class='bx bxs-wallet'></i>
+                                </div> -->
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col">
-                    <div class="card radius-10">
+                    <div class="card radius-10 text-white bg-warning">
                         <div class="card-body">
                             <div class="d-flex align-items-center">
                                 <div>
                                     <p class="mb-0">Users With Balance</p>
                                     <h4 class="my-1">{{ App\Models\Wallet::where('current_balance', '>', 0)->count() }}</h4>
-                                    <p class="mb-0 font-13"><i class='bx bxs-up-arrow align-middle'></i>14% Since last week
-                                    </p>
+                                    <!-- <p class="mb-0 font-13"><i class='bx bxs-up-arrow align-middle'></i>14% Since last week
+                                    </p> -->
                                 </div>
-                                <div class="widgets-icons ms-auto"><i class='bx bxs-group'></i>
-                                </div>
+                                <!-- <div class="widgets-icons ms-auto"><i class='bx bxs-group'></i>
+                                </div> -->
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-12">
-                    <div class="card radius-10">
+                    <div class="card radius-10 text-white bg-success">
                         <div class="card-body">
                             <div class="d-flex align-items-center">
                                 <div>
                                     <p class="mb-0">Average Balance</p>
                                     <h4 class="my-1">{{ amountNGN((App\Models\Wallet::sum('current_balance')/App\Models\Wallet::where('current_balance', '>', 0)->count())) }}</h4>
-                                    <p class="mb-0 font-13"><i class='bx bxs-down-arrow align-middle'></i>12.4% Since last
-                                        week</p>
+                                    <!-- <p class="mb-0 font-13"><i class='bx bxs-down-arrow align-middle'></i>12.4% Since last
+                                        week</p> -->
                                 </div>
-                                <div class="widgets-icons ms-auto"><i class='bx bxs-binoculars'></i>
-                                </div>
+                                <!-- <div class="widgets-icons ms-auto"><i class='bx bxs-binoculars'></i>
+                                </div> -->
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <!-- end row2 -->
-            <div class="card radius-10">
+            <!-- <div class="card radius-10 text-white">
                 <div class="card-body">
                     <div class="d-flex align-items-center">
                         <div>
@@ -189,11 +186,8 @@
                     @endif
                     <p></p>
 
-                    @if (!empty($data))
-                        {{ $data->links() }}
-                    @endif
                 </div>
-            </div>
+            </div> -->
         </div>
     </div>
     <!--end page wrapper -->
