@@ -33,7 +33,7 @@ class EducationDataTable extends DataTable
             ->addColumn('amount', function (Education $education){
                 return amountNGN($education->total_amount);
             })
-            ->addColumn('reference', function (Education $education){
+            ->addColumn('transaction_id', function (Education $education){
                 return $education->transaction_id;
             })
             ->addColumn('status', function (Education $education){
@@ -85,7 +85,7 @@ class EducationDataTable extends DataTable
     {
         return [
             Column::make('id'),
-            Column::make('reference'),
+            Column::make('transaction_id'),
             Column::make('status'),
             Column::make('email'),
             Column::make('amount'),

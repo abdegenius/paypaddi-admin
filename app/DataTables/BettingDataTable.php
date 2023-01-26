@@ -33,7 +33,7 @@ class BettingDataTable extends DataTable
             ->addColumn('amount', function (Betting $betting){
                 return amountNGN($betting->total_amount);
             })
-            ->addColumn('reference', function (Betting $betting){
+            ->addColumn('transaction_id', function (Betting $betting){
                 return $betting->transaction_id;
             })
             ->addColumn('status', function (Betting $betting){
@@ -85,7 +85,7 @@ class BettingDataTable extends DataTable
     {
         return [
             Column::make('id'),
-            Column::make('reference'),
+            Column::make('transaction_id'),
             Column::make('status'),
             Column::make('email'),
             Column::make('amount'),

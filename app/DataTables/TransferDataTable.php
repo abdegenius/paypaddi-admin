@@ -33,7 +33,7 @@ class TransferDataTable extends DataTable
             ->addColumn('amount', function (Transfer $transfer){
                 return amountNGN($transfer->total_amount);
             })
-            ->addColumn('reference', function (Transfer $transfer){
+            ->addColumn('transaction_id', function (Transfer $transfer){
                 return $transfer->transaction_id;
             })
             ->addColumn('status', function (Transfer $transfer){
@@ -85,7 +85,7 @@ class TransferDataTable extends DataTable
     {
         return [
             Column::make('id'),
-            Column::make('reference'),
+            Column::make('transaction_id'),
             Column::make('type'),
             Column::make('status'),
             Column::make('email'),

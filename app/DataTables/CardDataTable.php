@@ -33,7 +33,7 @@ class CardDataTable extends DataTable
             ->addColumn('amount', function (Card $card){
                 return amountNGN($card->total_amount);
             })
-            ->addColumn('reference', function (Card $card){
+            ->addColumn('card_id', function (Card $card){
                 return $card->card_id;
             })
             ->addColumn('status', function (Card $card){
@@ -85,7 +85,7 @@ class CardDataTable extends DataTable
     {
         return [
             Column::make('id'),
-            Column::make('reference'),
+            Column::make('card_id'),
             Column::make('status'),
             Column::make('email'),
             Column::make('amount'),

@@ -85,7 +85,7 @@ class CableDataTable extends DataTable
     {
         return [
             Column::make('id'),
-            Column::make('reference'),
+            Column::make('transaction_id'),
             Column::make('status'),
             Column::make('email'),
             Column::make('amount'),

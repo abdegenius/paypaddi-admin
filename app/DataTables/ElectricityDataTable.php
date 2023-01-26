@@ -33,7 +33,7 @@ class ElectricityDataTable extends DataTable
             ->addColumn('amount', function (Electricity $electricity){
                 return amountNGN($electricity->total_amount);
             })
-            ->addColumn('reference', function (Electricity $electricity){
+            ->addColumn('transaction_id', function (Electricity $electricity){
                 return $electricity->transaction_id;
             })
             ->addColumn('status', function (Electricity $electricity){
@@ -85,7 +85,7 @@ class ElectricityDataTable extends DataTable
     {
         return [
             Column::make('id'),
-            Column::make('reference'),
+            Column::make('transaction_id'),
             Column::make('status'),
             Column::make('email'),
             Column::make('amount'),
