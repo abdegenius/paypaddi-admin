@@ -33,7 +33,7 @@ class AirtimeDataTable extends DataTable
             ->addColumn('amount', function (Airtime $airtime){
                 return amountNGN($airtime->total_amount);
             })
-            ->addColumn('reference', function (Airtime $airtime){
+            ->addColumn('transaction_id', function (Airtime $airtime){
                 return $airtime->transaction_id;
             })
             ->addColumn('status', function (Airtime $airtime){

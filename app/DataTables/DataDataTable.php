@@ -33,7 +33,7 @@ class DataDataTable extends DataTable
             ->addColumn('amount', function (Data $data){
                 return amountNGN($data->total_amount);
             })
-            ->addColumn('reference', function (Data $data){
+            ->addColumn('transaction_id', function (Data $data){
                 return $data->transaction_id;
             })
             ->addColumn('status', function (Data $data){

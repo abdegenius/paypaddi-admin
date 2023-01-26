@@ -33,7 +33,7 @@ class CableDataTable extends DataTable
             ->addColumn('amount', function (Cable $cable){
                 return amountNGN($cable->total_amount);
             })
-            ->addColumn('reference', function (Cable $cable){
+            ->addColumn('transaction_id', function (Cable $cable){
                 return $cable->transaction_id;
             })
             ->addColumn('status', function (Cable $cable){
